@@ -99,7 +99,6 @@ namespace TikTokMusicPlayer
     public partial class MainWindow : Window
     {
         private Random random = new Random();
-        private List<Ellipse> stars = new List<Ellipse>();
         private DispatcherTimer? animationTimer;
         private DispatcherTimer? progressTimer;
 
@@ -152,7 +151,6 @@ namespace TikTokMusicPlayer
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            InitializeStarfield();
             InitializeSpectrum();
 
             animationTimer = new DispatcherTimer
@@ -173,6 +171,35 @@ namespace TikTokMusicPlayer
             {
                 UpdateRecordingIndicator();
             }
+
+            CheckForUpdatesAsync();
+        }
+
+        private async void CheckForUpdatesAsync()
+        {
+            try
+            {
+                var updateInfo = await UpdateManager.CheckForUpdateAsync();
+
+                if (updateInfo != null && updateInfo.HasUpdate)
+                {
+                    if (UpdateWindow.ShouldSkipVersion(updateInfo.LatestVersion))
+                    {
+                        return;
+                    }
+
+                    await Dispatcher.InvokeAsync(() =>
+                    {
+                        var updateWindow = new UpdateWindow(updateInfo);
+                        updateWindow.Owner = this;
+                        updateWindow.ShowDialog();
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"检查更新失败: {ex.Message}");
+            }
         }
 
         private void LoadSettings()
@@ -183,39 +210,6 @@ namespace TikTokMusicPlayer
         private void SaveSettings()
         {
             settings.Save();
-        }
-
-        private void InitializeStarfield()
-        {
-            StarfieldCanvas.Children.Clear();
-            stars.Clear();
-
-            double width = StarfieldCanvas.ActualWidth > 0 ? StarfieldCanvas.ActualWidth : 360;
-            double height = StarfieldCanvas.ActualHeight > 0 ? StarfieldCanvas.ActualHeight : 640;
-
-            for (int i = 0; i < 50; i++)
-            {
-                double size = random.NextDouble() * 2.0 + 0.5;
-                byte brightness = (byte)random.Next(150, 256);
-                var starBrush = new SolidColorBrush(Color.FromRgb(brightness, brightness, (byte)random.Next(200, 256)));
-
-                var starShape = new Ellipse
-                {
-                    Width = size,
-                    Height = size,
-                    Fill = starBrush,
-                    Opacity = random.NextDouble() * 0.5 + 0.3
-                };
-
-                double x = random.NextDouble() * width;
-                double y = random.NextDouble() * height;
-
-                Canvas.SetLeft(starShape, x);
-                Canvas.SetTop(starShape, y);
-
-                StarfieldCanvas.Children.Add(starShape);
-                stars.Add(starShape);
-            }
         }
 
         private void InitializeSpectrum()
@@ -280,32 +274,7 @@ namespace TikTokMusicPlayer
 
         private void AnimationTimer_Tick(object? sender, EventArgs e)
         {
-            UpdateStarAnimation();
             UpdateSpectrumBars();
-        }
-
-        private void UpdateStarAnimation()
-        {
-            double width = StarfieldCanvas.ActualWidth > 0 ? StarfieldCanvas.ActualWidth : 360;
-            double height = StarfieldCanvas.ActualHeight > 0 ? StarfieldCanvas.ActualHeight : 640;
-
-            foreach (var star in stars)
-            {
-                double left = Canvas.GetLeft(star);
-                double top = Canvas.GetTop(star);
-
-                double speed = 0.2 + star.Width * 0.1;
-                left -= speed;
-                top += speed * 0.3;
-
-                if (left < -5) left = width + 5;
-                if (top > height) top = -5;
-
-                Canvas.SetLeft(star, left);
-                Canvas.SetTop(star, top);
-
-                star.Opacity = 0.3 + random.NextDouble() * 0.4;
-            }
         }
 
         private void ProgressTimer_Tick(object? sender, EventArgs e)
@@ -458,7 +427,7 @@ namespace TikTokMusicPlayer
                 return;
             }
 
-            var audioExtensions = new[] { ".mp3", ".flac", ".wav", ".aac", ".ogg", ".m4a" };
+            var audioExtensions = new[] { ".mp3", ".flac", ".wav", ".aac", ".ogg", ".m4a", ".dsf", ".dff" };
             var files = Directory.GetFiles(aiSongsPath, "*.*")
                 .Where(f => audioExtensions.Contains(IOPath.GetExtension(f).ToLower()))
                 .OrderBy(f => f)
@@ -481,7 +450,7 @@ namespace TikTokMusicPlayer
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "音频文件|*.mp3;*.flac;*.wav;*.aac;*.ogg;*.m4a|所有文件|*.*",
+                Filter = "音频文件|*.mp3;*.flac;*.wav;*.aac;*.ogg;*.m4a;*.dsf;*.dff|所有文件|*.*",
                 Multiselect = true,
                 Title = "选择音乐文件"
             };
@@ -506,14 +475,24 @@ namespace TikTokMusicPlayer
         {
             try
             {
+                StopPlayback();
+                
                 currentFilePath = filePath;
                 SongTitleText.Text = IOPath.GetFileNameWithoutExtension(filePath);
 
+                string extension = IOPath.GetExtension(filePath).ToLower();
+                string formatText = GetAudioFormatDisplay(extension);
+                AudioFormatText.Text = formatText;
+                AudioFormatText.Visibility = string.IsNullOrEmpty(formatText) ? Visibility.Collapsed : Visibility.Visible;
+
                 LoadAlbumCover(filePath);
-                SearchLyricsAsync(filePath);
                 
+                currentLyrics.Clear();
+                currentLyricIndex = -1;
+                LyricsText.Text = "";
                 BtnSelectLyric.Visibility = Visibility.Collapsed;
-                LyricsText.Text = "正在搜索歌词...";
+                
+                BtnPlayPause.Content = "▶";
             }
             catch (Exception ex)
             {
@@ -592,7 +571,7 @@ namespace TikTokMusicPlayer
 
             if (dialog.ShowDialog() == true)
             {
-                var audioExtensions = new[] { ".mp3", ".flac", ".wav", ".aac", ".ogg", ".m4a" };
+                var audioExtensions = new[] { ".mp3", ".flac", ".wav", ".aac", ".ogg", ".m4a", ".dsf", ".dff" };
                 var files = Directory.GetFiles(dialog.FolderName, "*.*")
                     .Where(f => audioExtensions.Contains(IOPath.GetExtension(f).ToLower()))
                     .OrderBy(f => f)
@@ -637,6 +616,10 @@ namespace TikTokMusicPlayer
                         case ".wav":
                             fileStream = new WaveFileReader(filePath);
                             break;
+                        case ".dsf":
+                        case ".dff":
+                            fileStream = new FFmpegAudioReader(filePath);
+                            break;
                         default:
                             throw new NotSupportedException($"不支持的音频格式: {extension}");
                     }
@@ -657,7 +640,16 @@ namespace TikTokMusicPlayer
                 isPlaying = true;
                 BtnPlayPause.Content = "⏸";
 
+                SongTitleText.Text = IOPath.GetFileNameWithoutExtension(filePath);
                 TotalTimeText.Text = FormatTime(fileStream.TotalTime);
+
+                string formatText = GetAudioFormatDisplay(extension);
+                AudioFormatText.Text = formatText;
+                AudioFormatText.Visibility = string.IsNullOrEmpty(formatText) ? Visibility.Collapsed : Visibility.Visible;
+
+                SearchLyricsAsync(filePath);
+                BtnSelectLyric.Visibility = Visibility.Collapsed;
+                LyricsText.Text = "正在搜索歌词...";
 
                 if (settings.AutoRecordOnPlay && !isRecording)
                 {
@@ -701,6 +693,24 @@ namespace TikTokMusicPlayer
 
             isAudioInitialized = false;
             fftResults = null;
+        }
+
+        private string GetAudioFormatDisplay(string extension)
+        {
+            return extension.ToLower() switch
+            {
+                ".mp3" => "MP3",
+                ".flac" => "FLAC",
+                ".wav" => "WAV",
+                ".aac" => "AAC",
+                ".ogg" => "OGG",
+                ".m4a" => "M4A",
+                ".dsf" => "DSD",
+                ".dff" => "DSD",
+                ".wma" => "WMA",
+                ".ape" => "APE",
+                _ => extension.TrimStart('.').ToUpper()
+            };
         }
 
         private void LoadAlbumCover(string audioFilePath)
@@ -852,6 +862,7 @@ namespace TikTokMusicPlayer
             {
                 currentTrackIndex--;
                 PlayTrack(playlist[currentTrackIndex]);
+                playlistWindow?.UpdateCurrentTrack(currentTrackIndex);
             }
         }
 
@@ -866,6 +877,7 @@ namespace TikTokMusicPlayer
             {
                 currentTrackIndex++;
                 PlayTrack(playlist[currentTrackIndex]);
+                playlistWindow?.UpdateCurrentTrack(currentTrackIndex);
             }
         }
 
@@ -925,6 +937,13 @@ namespace TikTokMusicPlayer
         {
             double progress = GetProgressFromMouse(e);
             UpdateProgressUI(progress);
+        }
+
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutWindow = new AboutWindow();
+            aboutWindow.Owner = this;
+            aboutWindow.ShowDialog();
         }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
@@ -1249,9 +1268,7 @@ namespace TikTokMusicPlayer
                 playlistWindow.ForceClose();
             }
 
-            StarfieldCanvas?.Children.Clear();
             SpectrumCanvas?.Children.Clear();
-            stars?.Clear();
             spectrumBars?.Clear();
         }
     }

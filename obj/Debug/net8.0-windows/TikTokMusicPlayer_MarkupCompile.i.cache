@@ -1,5 +1,5 @@
 ﻿TikTokMusicPlayer
-10.0.0
+1.0.0.3
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\App.xaml
-41284725913
+61878647123
 
-11-788245027
+15291302115
 213-2034600194
-LyricSelectionWindow.xaml;MainWindow.xaml;PlaylistWindow.xaml;SettingsWindow.xaml;
+AboutWindow.xaml;LyricSelectionWindow.xaml;MainWindow.xaml;PlaylistWindow.xaml;SettingsWindow.xaml;UpdateWindow.xaml;
 
 False
 

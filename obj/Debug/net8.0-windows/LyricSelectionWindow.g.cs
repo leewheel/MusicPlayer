@@ -75,7 +75,7 @@ namespace TikTokMusicPlayer {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TikTokMusicPlayer;V10.0.0;component/lyricselectionwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TikTokMusicPlayer;V1.0.0.3;component/lyricselectionwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\LyricSelectionWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

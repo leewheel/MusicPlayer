@@ -1,0 +1,66 @@
+<Window x:Class="Updater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TikTok Music Player 更新程序"
+        Width="450" Height="280"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True">
+
+    <Border BorderBrush="#9D4EDD"
+            BorderThickness="2"
+            CornerRadius="10"
+            Background="#0A0F23">
+        <Border.Effect>
+            <DropShadowEffect Color="#9D4EDD" BlurRadius="15" ShadowDepth="0" Opacity="0.6"/>
+        </Border.Effect>
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="正在更新..." 
+                      FontSize="18" FontWeight="Bold" Foreground="#00FFFF"
+                      HorizontalAlignment="Center" Margin="0,0,0,15">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#00FFFF" BlurRadius="8" ShadowDepth="0" Opacity="0.5"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" x:Name="StatusText" Text="准备更新..." 
+                      Foreground="#888" FontSize="12"
+                      HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+            <ProgressBar Grid.Row="2" x:Name="ProgressBar" 
+                        Height="20" Margin="0,0,0,10"
+                        Background="#0F1428" 
+                        Foreground="#00FFFF"
+                        BorderBrush="#00FFFF"
+                        BorderThickness="1"
+                        Minimum="0" Maximum="100" Value="0"/>
+
+            <TextBlock Grid.Row="3" x:Name="ProgressText" Text="0%" 
+                      Foreground="#00FFFF" FontSize="11"
+                      HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+            <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Auto" Margin="0,5,0,0">
+                <TextBox x:Name="LogTextBox" 
+                        IsReadOnly="True" 
+                        Background="#0F1428"
+                        Foreground="#888"
+                        BorderThickness="0"
+                        FontSize="10"
+                        FontFamily="Consolas"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"/>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Window>

@@ -1,9 +1,3 @@
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.exe
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.dll
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.dll
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Core.dll
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.WinMM.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\ffmpeg\ffmpeg.exe
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\ffmpeg\ffprobe.exe
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\Cover.png
@@ -76,18 +70,31 @@ D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\花
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\蓝莲花 - 雷鬼.mp3
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\路太弯 - R&B.mp3
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\遇见 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.exe
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.deps.json
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.runtimeconfig.json
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.pdb
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Asio.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Core.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Midi.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.WinForms.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.WinMM.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.csproj.AssemblyReference.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\AboutWindow.baml
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\LyricSelectionWindow.baml
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\MainWindow.baml
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\PlaylistWindow.baml
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\SettingsWindow.baml
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\UpdateWindow.baml
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\AboutWindow.g.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\LyricSelectionWindow.g.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\MainWindow.g.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\PlaylistWindow.g.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\SettingsWindow.g.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\UpdateWindow.g.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\App.g.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer_MarkupCompile.cache
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.g.resources
@@ -95,12 +102,10 @@ D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusic
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.AssemblyInfoInputs.cache
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.AssemblyInfo.cs
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.csproj.CoreCompileInputs.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.sourcelink.json
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMu.54640C9A.Up2Date
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\refint\TikTokMusicPlayer.dll
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.pdb
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.deps.json
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.runtimeconfig.json
-D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.pdb
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.genruntimeconfig.cache
 D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\ref\TikTokMusicPlayer.dll
