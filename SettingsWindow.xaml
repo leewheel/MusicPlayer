@@ -1,0 +1,224 @@
+<Window x:Class="TikTokMusicPlayer.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="设置"
+        Width="320" Height="520"
+        Background="Transparent"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style x:Key="SciFiButton" TargetType="Button">
+            <Setter Property="Background" Value="#0F1428"/>
+            <Setter Property="Foreground" Value="#00FFFF"/>
+            <Setter Property="BorderBrush" Value="#00FFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SciFiCheckBox" TargetType="CheckBox">
+            <Setter Property="Foreground" Value="#00FFFF"/>
+            <Setter Property="Background" Value="#0F1428"/>
+            <Setter Property="BorderBrush" Value="#00FFFF"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="CheckBorder"
+                                    Grid.Column="0"
+                                    Width="18" Height="18"
+                                    Background="#0F1428"
+                                    BorderBrush="#00FFFF"
+                                    BorderThickness="1"
+                                    CornerRadius="2"
+                                    VerticalAlignment="Center">
+                                <Path x:Name="CheckMark"
+                                      Data="M 3 9 L 7 13 L 14 4"
+                                      Stroke="#00FFFF"
+                                      StrokeThickness="2"
+                                      Stretch="Uniform"
+                                      Visibility="Collapsed"
+                                      Margin="2"/>
+                            </Border>
+                            <ContentPresenter Grid.Column="1" 
+                                            Margin="8,0,0,0" 
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Left"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SciFiTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#0F1428"/>
+            <Setter Property="Foreground" Value="#00FFFF"/>
+            <Setter Property="BorderBrush" Value="#00FFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border BorderBrush="#9D4EDD"
+            BorderThickness="2"
+            CornerRadius="10"
+            Background="#0A0F23"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect Color="#9D4EDD" BlurRadius="15" ShadowDepth="0" Opacity="0.6"/>
+        </Border.Effect>
+
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,15">
+                <TextBlock Text="设置" FontSize="18" FontWeight="Bold" Foreground="#00FFFF"
+                          HorizontalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#00FFFF" BlurRadius="8" ShadowDepth="0" Opacity="0.5"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Width="20" Height="20" Click="BtnClose_Click" Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                                      Fill="#FF6B6B" Stretch="Uniform" Width="12" Height="12"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Text="歌词设置" Foreground="#C77DFF" FontSize="14" FontWeight="Bold" Margin="0,0,0,10"/>
+                    
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="歌词时间偏移 (秒):" Foreground="#00FFFF" FontSize="12" Margin="0,0,0,5"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="TxtLyricOffset" Grid.Column="0" Style="{StaticResource SciFiTextBox}"
+                                    TextChanged="TxtLyricOffset_TextChanged"/>
+                            <Button Grid.Column="1" Content="-" Style="{StaticResource SciFiButton}"
+                                   Width="30" Margin="5,0,0,0" Click="BtnLyricOffsetDown_Click"/>
+                            <Button Grid.Column="2" Content="+" Style="{StaticResource SciFiButton}"
+                                   Width="30" Margin="5,0,0,0" Click="BtnLyricOffsetUp_Click"/>
+                            <Button Grid.Column="3" Content="0" Style="{StaticResource SciFiButton}"
+                                   Width="30" Margin="5,0,0,0" Click="BtnLyricOffsetReset_Click"/>
+                        </Grid>
+                        <TextBlock Text="提示: 播放时可按 &lt; 和 &gt; 键调整偏移" 
+                                  Foreground="#888" FontSize="10" Margin="0,5,0,0"/>
+                    </StackPanel>
+
+                    <TextBlock Text="录制设置" Foreground="#C77DFF" FontSize="14" FontWeight="Bold" Margin="0,0,0,10"/>
+                    
+                    <CheckBox x:Name="ChkAutoRecord" Content="播放时自动开始录制"
+                             Style="{StaticResource SciFiCheckBox}"
+                             Checked="ChkAutoRecord_Changed" Unchecked="ChkAutoRecord_Changed"
+                             Margin="0,0,0,15"/>
+
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="录制文件名 (不含扩展名):" Foreground="#00FFFF" FontSize="12" Margin="0,0,0,5"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="TxtRecordingFileName" Grid.Column="0" Style="{StaticResource SciFiTextBox}"
+                                    TextChanged="TxtRecordingFileName_TextChanged"/>
+                            <TextBlock Grid.Column="1" Text=".mp4" Foreground="#00FFFF" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        </Grid>
+                        <TextBlock Text="留空则使用时间戳命名" 
+                                  Foreground="#888" FontSize="10" Margin="0,5,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="录制输出目录:" Foreground="#00FFFF" FontSize="12" Margin="0,0,0,5"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="TxtOutputPath" Grid.Column="0" Style="{StaticResource SciFiTextBox}"
+                                    TextChanged="TxtOutputPath_TextChanged"/>
+                            <Button Grid.Column="1" Content="..." Style="{StaticResource SciFiButton}"
+                                   Width="30" Margin="5,0,0,0" Click="BtnBrowseOutputPath_Click"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="录制分辨率:" Foreground="#00FFFF" FontSize="12" Margin="0,0,0,5"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="TxtWidth" Grid.Column="0" Style="{StaticResource SciFiTextBox}"
+                                    TextChanged="TxtResolution_TextChanged"/>
+                            <TextBlock Grid.Column="1" Text=" x " Foreground="#00FFFF" VerticalAlignment="Center"/>
+                            <TextBox x:Name="TxtHeight" Grid.Column="2" Style="{StaticResource SciFiTextBox}"
+                                    TextChanged="TxtResolution_TextChanged"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <TextBlock Text="分辨率预设:" Foreground="#00FFFF" FontSize="12" Margin="0,0,0,8"/>
+                    <Button Content="预设: 720x1280 (9:16 HD)" Style="{StaticResource SciFiButton}"
+                           Height="30" Click="BtnPreset9x16_Click" Margin="0,0,0,8"/>
+                    <Button Content="预设: 1080x1920 (9:16 FHD)" Style="{StaticResource SciFiButton}"
+                           Height="30" Click="BtnPreset9x16HD_Click" Margin="0,0,0,8"/>
+                    <Button Content="预设: 1440x2560 (9:16 2K)" Style="{StaticResource SciFiButton}"
+                           Height="30" Click="BtnPreset9x16FullHD_Click"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,106 @@
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.exe
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Core.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.WinMM.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\ffmpeg\ffmpeg.exe
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\ffmpeg\ffprobe.exe
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\Cover.png
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\Monica-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\今夜你会不会来 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\你听得到-灵魂乐+布鲁斯.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\你是我的眼-抒情摇滚.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\你那么爱她 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\再见 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\冬天的秘密 -R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\冬天里的一把火-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\勇气-R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\北极星的眼泪 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\千年等一回 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\南方姑娘 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\去北极忘记你-R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\去北极忘记你-流行摇滚.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\后来-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\太早 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\失恋阵线联盟 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\好想好想 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\好日子 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\好运来 - 雷鬼+舞曲.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\如果我变成回忆-抒情摇滚.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\嫁给我 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\安和桥-布鲁斯+爵士+灵魂+雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\安和桥-放克+蒸汽波.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\安和桥-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\小苹果-迪斯科.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\就是爱你-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\山歌好比春江水 -雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\左边 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\张三的歌-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\心太软 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\忽然-民谣摇滚.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\恋曲1980 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\恭喜发财 - 放克.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\恭喜发财 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\成都 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\我们的时光 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\我只在乎你-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\我难过 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\手放开 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\执着 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\挪威的森林 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\最炫民族风-放克.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\最长的电影-R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\月亮代表我的心-爵士.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\李豁子离婚-雷鬼.wav
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\枫-抒情摇滚.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\爱如潮水-R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\爱的初体验 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\爱的天国 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\爷爷泡的茶 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\狗日的青春 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\痒-美声歌剧版.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\痴心绝对 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\白色风车-节奏布鲁斯爵士乐.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\私奔 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\突然好想你 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\童话 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\答应不爱你 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\简单爱 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\粉红色的回忆 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\纤夫的爱 -雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\老鼠爱大米-RNB版.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\至少还有你-R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\至少还有你-雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\花房姑娘 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\蓝莲花 - 雷鬼.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\路太弯 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\AISongs\遇见 - R&B.mp3
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Asio.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.Midi.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\NAudio.WinForms.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.csproj.AssemblyReference.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\LyricSelectionWindow.baml
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\MainWindow.baml
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\PlaylistWindow.baml
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\SettingsWindow.baml
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\LyricSelectionWindow.g.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\PlaylistWindow.g.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\SettingsWindow.g.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\App.g.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer_MarkupCompile.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.g.resources
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.AssemblyInfoInputs.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.AssemblyInfo.cs
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.csproj.CoreCompileInputs.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMu.54640C9A.Up2Date
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\refint\TikTokMusicPlayer.dll
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.pdb
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.deps.json
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.runtimeconfig.json
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\bin\Debug\net8.0-windows\TikTokMusicPlayer.pdb
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\TikTokMusicPlayer.genruntimeconfig.cache
+D:\AIProject\TikTokPlayer\TikTokMusicPlayer\obj\Debug\net8.0-windows\ref\TikTokMusicPlayer.dll
