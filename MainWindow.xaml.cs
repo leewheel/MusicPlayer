@@ -131,6 +131,10 @@ namespace TikTokMusicPlayer
         private bool isRecording = false;
         private Process? ffmpegProcess;
         private string? recordingOutputPath;
+        private string? tempVideoPath;
+        private string? tempAudioPath;
+        private NAudio.Wave.WasapiLoopbackCapture? audioCapture;
+        private NAudio.Wave.WaveFileWriter? audioWriter;
 
         private PlaylistWindow? playlistWindow;
 
@@ -1046,30 +1050,55 @@ namespace TikTokMusicPlayer
             {
                 fileName = $"recording_{timestamp}";
             }
+            
+            string tempDir = IOPath.Combine(IOPath.GetTempPath(), "TikTokMusicPlayer_Recording");
+            Directory.CreateDirectory(tempDir);
+            tempVideoPath = IOPath.Combine(tempDir, $"video_{timestamp}.mp4");
+            tempAudioPath = IOPath.Combine(tempDir, $"audio_{timestamp}.wav");
             recordingOutputPath = IOPath.Combine(outputDir, $"{fileName}.mp4");
 
-            int width = settings.RecordingWidth;
-            int height = settings.RecordingHeight;
+            int width = (int)this.ActualWidth;
+            int height = (int)this.ActualHeight;
+
+            if (width % 2 != 0) width++;
+            if (height % 2 != 0) height++;
 
             var windowBounds = GetWindowBounds();
             
             string ffmpegExe = GetFFmpegPath();
-            
+
             string ffmpegArgs = $"-f gdigrab -framerate 30 " +
                                $"-offset_x {windowBounds.X} -offset_y {windowBounds.Y} " +
                                $"-video_size {width}x{height} " +
                                $"-i desktop " +
-                               $"-f dshow -i audio=\"virtual-audio-capturer\" " +
                                $"-c:v libx264 -preset ultrafast -crf 23 " +
-                               $"-c:a aac -b:a 192k " +
-                               $"-pix_fmt yuv420p -movflags +faststart -y \"{recordingOutputPath}\"";
+                               $"-pix_fmt yuv420p -y \"{tempVideoPath}\"";
 
             System.Diagnostics.Debug.WriteLine($"[录制] FFmpeg路径: {ffmpegExe}");
             System.Diagnostics.Debug.WriteLine($"[录制] FFmpeg参数: {ffmpegArgs}");
-            System.Diagnostics.Debug.WriteLine($"[录制] 输出路径: {recordingOutputPath}");
+            System.Diagnostics.Debug.WriteLine($"[录制] 临时视频: {tempVideoPath}");
+            System.Diagnostics.Debug.WriteLine($"[录制] 临时音频: {tempAudioPath}");
 
             try
             {
+                var defaultDevice = NAudio.Wave.WasapiLoopbackCapture.GetDefaultLoopbackCaptureDevice();
+                if (defaultDevice != null)
+                {
+                    audioCapture = new NAudio.Wave.WasapiLoopbackCapture(defaultDevice);
+                    audioWriter = new NAudio.Wave.WaveFileWriter(tempAudioPath, audioCapture.WaveFormat);
+                    
+                    audioCapture.DataAvailable += (s, e) =>
+                    {
+                        if (audioWriter != null && e.BytesRecorded > 0)
+                        {
+                            audioWriter.Write(e.Buffer, 0, e.BytesRecorded);
+                        }
+                    };
+                    
+                    audioCapture.StartRecording();
+                    System.Diagnostics.Debug.WriteLine("[录制] 音频捕获已启动");
+                }
+
                 ffmpegProcess = new Process
                 {
                     StartInfo = new ProcessStartInfo
@@ -1100,6 +1129,7 @@ namespace TikTokMusicPlayer
             catch (Exception ex)
             {
                 MessageBox.Show($"启动录制失败: {ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                CleanupRecording();
             }
         }
 
@@ -1135,11 +1165,37 @@ namespace TikTokMusicPlayer
 
         private void StopRecording()
         {
+            System.Diagnostics.Debug.WriteLine("[录制] 正在停止录制...");
+
+            if (audioCapture != null)
+            {
+                try
+                {
+                    audioCapture.StopRecording();
+                    audioCapture.Dispose();
+                    audioCapture = null;
+                    System.Diagnostics.Debug.WriteLine("[录制] 音频捕获已停止");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"[录制] 停止音频捕获异常: {ex.Message}");
+                }
+            }
+
+            if (audioWriter != null)
+            {
+                try
+                {
+                    audioWriter.Dispose();
+                    audioWriter = null;
+                }
+                catch { }
+            }
+
             if (ffmpegProcess != null && !ffmpegProcess.HasExited)
             {
                 try
                 {
-                    System.Diagnostics.Debug.WriteLine("[录制] 正在停止录制...");
                     ffmpegProcess.StandardInput.WriteLine("q");
                     bool exited = ffmpegProcess.WaitForExit(5000);
                     if (!exited)
@@ -1151,28 +1207,109 @@ namespace TikTokMusicPlayer
                     {
                         System.Diagnostics.Debug.WriteLine($"[录制] FFmpeg已退出，代码: {ffmpegProcess.ExitCode}");
                     }
-                    
-                    if (File.Exists(recordingOutputPath))
-                    {
-                        var fileInfo = new FileInfo(recordingOutputPath);
-                        System.Diagnostics.Debug.WriteLine($"[录制] 文件已生成: {recordingOutputPath}, 大小: {fileInfo.Length / 1024}KB");
-                    }
-                    else
-                    {
-                        System.Diagnostics.Debug.WriteLine($"[录制] 文件未生成: {recordingOutputPath}");
-                    }
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine($"[录制] 停止录制异常: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"[录制] 停止FFmpeg异常: {ex.Message}");
                 }
 
                 ffmpegProcess.Dispose();
                 ffmpegProcess = null;
             }
 
+            MergeAudioVideo();
+
             isRecording = false;
             UpdateRecordingIndicator();
+        }
+
+        private void MergeAudioVideo()
+        {
+            if (string.IsNullOrEmpty(tempVideoPath) || string.IsNullOrEmpty(recordingOutputPath))
+            {
+                CleanupRecording();
+                return;
+            }
+
+            try
+            {
+                string ffmpegExe = GetFFmpegPath();
+                bool hasAudio = File.Exists(tempAudioPath) && new FileInfo(tempAudioPath).Length > 1000;
+
+                string mergeArgs;
+                if (hasAudio)
+                {
+                    mergeArgs = $"-i \"{tempVideoPath}\" -i \"{tempAudioPath}\" " +
+                               $"-c:v copy -c:a aac -b:a 192k -shortest " +
+                               $"-movflags +faststart -y \"{recordingOutputPath}\"";
+                }
+                else
+                {
+                    mergeArgs = $"-i \"{tempVideoPath}\" -c:v copy " +
+                               $"-movflags +faststart -y \"{recordingOutputPath}\"";
+                }
+
+                System.Diagnostics.Debug.WriteLine($"[录制] 合并参数: {mergeArgs}");
+
+                var mergeProcess = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = ffmpegExe,
+                        Arguments = mergeArgs,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true
+                    }
+                };
+
+                mergeProcess.Start();
+                mergeProcess.WaitForExit(30000);
+
+                if (File.Exists(recordingOutputPath))
+                {
+                    var fileInfo = new FileInfo(recordingOutputPath);
+                    System.Diagnostics.Debug.WriteLine($"[录制] 文件已生成: {recordingOutputPath}, 大小: {fileInfo.Length / 1024}KB");
+                    
+                    Dispatcher.Invoke(() =>
+                    {
+                        MessageBox.Show($"录制完成！\n文件: {recordingOutputPath}\n大小: {fileInfo.Length / 1024 / 1024:F2} MB", 
+                            "录制完成", MessageBoxButton.OK, MessageBoxImage.Information);
+                    });
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine($"[录制] 文件未生成: {recordingOutputPath}");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[录制] 合并异常: {ex.Message}");
+            }
+            finally
+            {
+                CleanupRecording();
+            }
+        }
+
+        private void CleanupRecording()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(tempVideoPath) && File.Exists(tempVideoPath))
+                {
+                    File.Delete(tempVideoPath);
+                }
+                if (!string.IsNullOrEmpty(tempAudioPath) && File.Exists(tempAudioPath))
+                {
+                    File.Delete(tempAudioPath);
+                }
+            }
+            catch { }
+
+            tempVideoPath = null;
+            tempAudioPath = null;
         }
 
         private bool IsFFmpegAvailable()

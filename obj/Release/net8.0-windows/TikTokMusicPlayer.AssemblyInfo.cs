@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2026 leewheel")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.3")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0.3+b5204581032e5eb09e3c84efb88c62374ff697f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0.3+f0904192032d07c3e3c488acbd75e052cce9ea34")]
 [assembly: System.Reflection.AssemblyProductAttribute("TikTok Music Player")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TikTokMusicPlayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.3")]
